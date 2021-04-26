@@ -24,13 +24,38 @@ public class CartTest {
     @Test
     public void isEmptyMethodShouldReturnABoolean(){
         //Setup
-        boolean expected = true;
+        boolean expected1 = true;
+        boolean expected2 = false;
         Cart cart = new Cart();
 
         //Execute
-        boolean actual = cart.isEmpty();
+        boolean actual1 = cart.isEmpty();
+        cart.getList().add(new Item());
+        boolean actual2 = cart.isEmpty();
 
         //Assert
-        assertEquals(expected, actual,"should have isEmpty method");
+        assertEquals(expected1, actual1,"should have isEmpty method");
+        assertEquals(expected2, actual2,"should be false if the list is empty");
+
     }
+
+//    @Test
+//    public void isEmptyMethodShouldReturnABoolean(){
+//        //Setup
+//        boolean expected1 = true;
+//        boolean expected2 = false;
+//        Cart cart = new Cart();
+//
+//        //Execute
+//        boolean actual1 = cart.isEmpty();
+//        cart.getList().add(new Item());
+//        boolean actual2 = cart.isEmpty();
+//
+//        //Assert
+//        assertEquals(expected1, actual1,"should have isEmpty method");
+//        assertEquals(expected2, actual2,"should be false if the list is empty");
+//
+//    }
+
+
 }

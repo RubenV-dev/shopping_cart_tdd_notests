@@ -13,7 +13,7 @@ public class Cart {
     }
 
     public boolean isEmpty() {
-        return false;
+        return this.list.size() == 0;
     }
 
 }
