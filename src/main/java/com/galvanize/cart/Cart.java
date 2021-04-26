@@ -9,6 +9,7 @@ import java.util.HashMap;
 //        So that I can store items until I am ready to checkout
 public class Cart {
     private ArrayList<Item> list = new ArrayList<Item>();
+    private ArrayList<String> onSaleItems = new ArrayList<String>();
     private double totalPrice = 0;
     private HashMap<String, Integer> quantities = new HashMap<String, Integer>();
 
@@ -21,6 +22,9 @@ public class Cart {
         int q = quantities.getOrDefault(item.getName(), 0) + 1;
         this.quantities.put(item.getName(), q);
         list.add(item);
+        if(item.getOnSale()){
+            this.onSaleItems.add(item.getName());
+        }
     }
 
     public boolean isEmpty() {
@@ -53,6 +57,6 @@ public class Cart {
     }
 
     public ArrayList<String> onSaleItems() {
-        return new ArrayList<String>();
+        return this.onSaleItems;
     }
 }

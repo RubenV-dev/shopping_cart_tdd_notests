@@ -38,4 +38,19 @@ public class ItemTest {
         assertEquals(expected,actual,"item name should be Apples");
         assertEquals(expected2,actual2,"item name should be Banana");
     }
+
+    @Test
+    public void shouldAddOnSaleItems(){
+        boolean expected = true;
+        boolean expected2 = false;
+        Item item1 = new Item("chips",1.00);
+        Item item2 = new Item("chips",1.00,true);
+
+        boolean actual = item1.getOnSale();
+        boolean actual2 = item2.getOnSale();
+
+        assertEquals(expected,actual,"should initialize item on sale to false");
+        assertEquals(expected2,actual2,"should initialize item on sale to constructor value");
+    }
+
 }

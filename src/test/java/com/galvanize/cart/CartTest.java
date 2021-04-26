@@ -110,17 +110,17 @@ public class CartTest {
     public void shouldIncludeOnlyItemsOnSale() {
         ArrayList<String> expected = new ArrayList();
         expected.add("Bread");
-//      ArrayList expected2 = new ArrayList<>();
+        ArrayList<String> expected2 = new ArrayList<>();
         Cart cart = new Cart();
         cart.addItem(new Item("Apples",  1.00));
         cart.addItem(new Item("Oranges",  1.25));
-        cart.addItem(new Item("Bread",  4.50));
+        cart.addItem(new Item("Bread",  4.50, true));
         Cart cart2 = new Cart();
 
         ArrayList<String> actual = cart.onSaleItems();
-//      ArrayList<String> actual2 = cart2.onSaleItems();
+        ArrayList<String> actual2 = cart2.onSaleItems();
 
         assertArrayEquals(expected.toArray(), actual.toArray(), "should show only on sale items");
-//        assertEquals(expected2, actual2, "Should show no items on sale");
+        assertEquals(expected2, actual2, "Should show no items on sale");
     }
 }
