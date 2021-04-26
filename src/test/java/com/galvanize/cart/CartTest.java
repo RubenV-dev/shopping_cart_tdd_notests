@@ -30,7 +30,7 @@ public class CartTest {
 
         //Execute
         boolean actual1 = cart.isEmpty();
-        cart.getList().add(new Item());
+        cart.getList().add(new Item(0.00));
         boolean actual2 = cart.isEmpty();
 
         //Assert
@@ -39,23 +39,16 @@ public class CartTest {
 
     }
 
-//    @Test
-//    public void isEmptyMethodShouldReturnABoolean(){
-//        //Setup
-//        boolean expected1 = true;
-//        boolean expected2 = false;
-//        Cart cart = new Cart();
-//
-//        //Execute
-//        boolean actual1 = cart.isEmpty();
-//        cart.getList().add(new Item());
-//        boolean actual2 = cart.isEmpty();
-//
-//        //Assert
-//        assertEquals(expected1, actual1,"should have isEmpty method");
-//        assertEquals(expected2, actual2,"should be false if the list is empty");
-//
-//    }
+    @Test
+    public void shouldReturnTotalPrice() {
+        //Setup
+        double expected = 1.00;
+        Cart cart = new Cart();
 
+        //Execute
+        double actual = cart.getTotalPrice();
 
+        //Assert
+        assertEquals(expected, actual, "should return total price of $1.00");
+    }
 }

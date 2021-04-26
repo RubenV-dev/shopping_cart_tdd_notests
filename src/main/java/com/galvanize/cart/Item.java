@@ -1,7 +1,13 @@
 package com.galvanize.cart;
 
 public class Item {
+    private double price;
+
+    public Item(double price) {
+        this.price = price;
+    }
+
     public double getPrice(){
-        return 0.0;
+        return this.price;
     }
 }

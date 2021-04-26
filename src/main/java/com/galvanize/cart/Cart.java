@@ -16,4 +16,8 @@ public class Cart {
         return this.list.size() == 0;
     }
 
+    public double getTotalPrice() {
+        return 0.00;
+    }
+
 }
