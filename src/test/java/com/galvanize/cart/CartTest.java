@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CartTest {
@@ -59,15 +60,20 @@ public class CartTest {
     @Test
     public void shouldPrintItemizedListOfItemsInCart() {
         String expected = "Apples: $1.00\nOranges: $1.25\nBread: $4.50\n";
+        String expected2 = "No items in cart";
         Cart cart = new Cart();
         cart.addItem(new Item("Apples",  1.00));
         cart.addItem(new Item("Oranges",  1.25));
         cart.addItem(new Item("Bread",  4.50));
 
+        Cart cart2 = new Cart();
 
         String actual = cart.itemizedList();
+        String actual2 = cart2.itemizedList();
 
         assertEquals(expected,actual,"should reflect the items added along with their price - Apples: $1.00");
+        assertEquals(expected2,actual2,"empty cart should reflect no items message");
+
     }
 
     @Test
@@ -84,13 +90,37 @@ public class CartTest {
 
     @Test
     public void itemQuantitiesShouldReflectQuantityAndItemPrice(){
-        int expected = 2;
+        String expected = "Apples: 2\nOranges: 1\n";
+        String expected2 = "No items in cart";
+
         Cart cart = new Cart();
         cart.addItem(new Item("Apples",  1.00));
         cart.addItem(new Item("Apples",  1.00));
+        cart.addItem(new Item("Oranges",  1.10));
+        Cart cart2 = new Cart();
 
-        int actual = cart.itemQuantities();
+        String actual = cart.itemQuantities();
+        String actual2 = cart2.itemQuantities();
 
-        assertEquals(expected,actual,"total price should reflect correct quantity");
+        assertEquals(expected,actual,"item quantities should reflect correct quantity");
+        assertEquals(expected2,actual2,"should return no items message");
+    }
+
+    @Test
+    public void shouldIncludeOnlyItemsOnSale() {
+        ArrayList<String> expected = new ArrayList();
+        expected.add("Bread");
+//      ArrayList expected2 = new ArrayList<>();
+        Cart cart = new Cart();
+        cart.addItem(new Item("Apples",  1.00));
+        cart.addItem(new Item("Oranges",  1.25));
+        cart.addItem(new Item("Bread",  4.50));
+        Cart cart2 = new Cart();
+
+        ArrayList<String> actual = cart.onSaleItems();
+//      ArrayList<String> actual2 = cart2.onSaleItems();
+
+        assertArrayEquals(expected.toArray(), actual.toArray(), "should show only on sale items");
+//        assertEquals(expected2, actual2, "Should show no items on sale");
     }
 }
