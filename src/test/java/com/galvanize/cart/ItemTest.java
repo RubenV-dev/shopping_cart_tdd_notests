@@ -2,11 +2,15 @@ package com.galvanize.cart;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
+//import java.util.Arrays;
+//import java.util.List;
+//import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
+
 
 public class ItemTest {
     @Test
@@ -41,16 +45,14 @@ public class ItemTest {
 
     @Test
     public void shouldAddOnSaleItems(){
-        boolean expected = true;
-        boolean expected2 = false;
         Item item1 = new Item("chips",1.00);
         Item item2 = new Item("chips",1.00,true);
 
         boolean actual = item1.getOnSale();
         boolean actual2 = item2.getOnSale();
 
-        assertEquals(expected,actual,"should initialize item on sale to false");
-        assertEquals(expected2,actual2,"should initialize item on sale to constructor value");
+        assertFalse(actual,"should initialize item on sale to false");
+        assertTrue(actual2,"should initialize item on sale to constructor value");
     }
 
 }

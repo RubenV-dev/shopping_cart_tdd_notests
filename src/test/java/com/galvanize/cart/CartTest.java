@@ -2,12 +2,16 @@ package com.galvanize.cart;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.List;
+//import java.util.Arrays;
+//import java.util.List;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
+
 
 public class CartTest {
 
@@ -25,8 +29,6 @@ public class CartTest {
     @Test
     public void isEmptyMethodShouldReturnABoolean(){
         //Setup
-        boolean expected1 = true;
-        boolean expected2 = false;
         Cart cart = new Cart();
 
         //Execute
@@ -35,8 +37,8 @@ public class CartTest {
         boolean actual2 = cart.isEmpty();
 
         //Assert
-        assertEquals(expected1, actual1,"should have isEmpty method");
-        assertEquals(expected2, actual2,"should be false if the list is empty");
+        assertTrue(actual1,"should have isEmpty method");
+        assertFalse(actual2,"should be false if the list is empty");
 
     }
 
@@ -108,7 +110,7 @@ public class CartTest {
 
     @Test
     public void shouldIncludeOnlyItemsOnSale() {
-        ArrayList<String> expected = new ArrayList();
+        ArrayList<String> expected = new ArrayList<>();
         expected.add("Bread");
         ArrayList<String> expected2 = new ArrayList<>();
         Cart cart = new Cart();
