@@ -23,4 +23,19 @@ public class ItemTest {
         assertEquals(expected,actual,"item price should be 0.99");        assertEquals(expected,actual,"item price should be 0.0");
         assertEquals(expected2,actual2,"item price should be 1.10");
     }
+
+    @Test
+    public void itemShouldHaveName(){
+        //Setup
+        String expected = "Apples";
+        String expected2 = "Bannana";
+        Item item1 = new Item(0.99);
+        Item item2 = new Item(1.10);
+        //Execute
+        String actual = item1.getName();
+        String actual2 = item2.getName();
+        //Assert
+        assertEquals(expected,actual,"item name should be Apples");        assertEquals(expected,actual,"item price should be 0.0");
+        assertEquals(expected2,actual2,"item name should be Bannana");
+    }
 }

@@ -7,9 +7,15 @@ import java.util.ArrayList;
 //        So that I can store items until I am ready to checkout
 public class Cart {
     private ArrayList<Item> list = new ArrayList<Item>();
+    private double totalPrice = 0;
 
     public ArrayList<Item> getList() {
         return list;
+    }
+
+    public void addItem(Item item){
+        this.totalPrice += item.getPrice();
+        list.add(item);
     }
 
     public boolean isEmpty() {
@@ -17,7 +23,7 @@ public class Cart {
     }
 
     public double getTotalPrice() {
-        return 0.00;
+        return this.totalPrice;
     }
 
 }

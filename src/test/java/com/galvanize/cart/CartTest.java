@@ -42,13 +42,17 @@ public class CartTest {
     @Test
     public void shouldReturnTotalPrice() {
         //Setup
-        double expected = 1.00;
+        double expected = 0.00;
+        double expected2 = 1.00;
         Cart cart = new Cart();
-
+        Cart cart2 = new Cart();
+        cart2.addItem(new Item(1.00));
         //Execute
         double actual = cart.getTotalPrice();
+        double actual2 = cart2.getTotalPrice();
 
         //Assert
-        assertEquals(expected, actual, "should return total price of $1.00");
+        assertEquals(expected, actual, "should return total price of $0.00");
+        assertEquals(expected2, actual2, "should return total price of $1.00");
     }
 }
