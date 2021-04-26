@@ -21,4 +21,16 @@ public class CartTest {
         assertEquals(expected,actual,"cart size should be 0");
     }
 
+    @Test
+    public void isEmptyMethodShouldReturnABoolean(){
+        //Setup
+        boolean expected = true;
+        Cart cart = new Cart();
+
+        //Execute
+        boolean actual = cart.isEmpty();
+
+        //Assert
+        assertEquals(expected, actual,"should have isEmpty method");
+    }
 }
