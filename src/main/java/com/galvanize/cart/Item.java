@@ -4,7 +4,8 @@ public class Item {
     private double price;
     private String name;
 
-    public Item(double price) {
+    public Item(String name, double price) {
+        this.name = name;
         this.price = price;
     }
 
@@ -13,6 +14,6 @@ public class Item {
     }
 
     public String getName(){
-        return name;
+        return this.name;
     }
 }

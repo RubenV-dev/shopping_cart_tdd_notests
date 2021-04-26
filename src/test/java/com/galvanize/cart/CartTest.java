@@ -30,7 +30,7 @@ public class CartTest {
 
         //Execute
         boolean actual1 = cart.isEmpty();
-        cart.getList().add(new Item(0.00));
+        cart.getList().add(new Item("name", 0.00));
         boolean actual2 = cart.isEmpty();
 
         //Assert
@@ -46,7 +46,7 @@ public class CartTest {
         double expected2 = 1.00;
         Cart cart = new Cart();
         Cart cart2 = new Cart();
-        cart2.addItem(new Item(1.00));
+        cart2.addItem(new Item("name", 1.00));
         //Execute
         double actual = cart.getTotalPrice();
         double actual2 = cart2.getTotalPrice();
@@ -54,5 +54,16 @@ public class CartTest {
         //Assert
         assertEquals(expected, actual, "should return total price of $0.00");
         assertEquals(expected2, actual2, "should return total price of $1.00");
+    }
+
+    @Test
+    public void shouldPrintItemizedListOfItemsInCart() {
+        String expected = "Apples: $1.00";
+        Cart cart = new Cart();
+        cart.addItem(new Item("Apples",  1.00));
+
+        String actual = cart.itemizedList();
+
+        assertEquals(expected,actual,"should reflect the items added along with their price - Apples: $1.00");
     }
 }

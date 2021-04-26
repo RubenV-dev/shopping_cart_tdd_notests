@@ -1,5 +1,6 @@
 package com.galvanize.cart;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 //As a shopper
@@ -24,6 +25,10 @@ public class Cart {
 
     public double getTotalPrice() {
         return this.totalPrice;
+    }
+
+    public String itemizedList() {
+        return "";
     }
 
 }
