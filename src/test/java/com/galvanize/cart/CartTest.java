@@ -58,12 +58,39 @@ public class CartTest {
 
     @Test
     public void shouldPrintItemizedListOfItemsInCart() {
-        String expected = "Apples: $1.00";
+        String expected = "Apples: $1.00\nOranges: $1.25\nBread: $4.50\n";
         Cart cart = new Cart();
         cart.addItem(new Item("Apples",  1.00));
+        cart.addItem(new Item("Oranges",  1.25));
+        cart.addItem(new Item("Bread",  4.50));
+
 
         String actual = cart.itemizedList();
 
         assertEquals(expected,actual,"should reflect the items added along with their price - Apples: $1.00");
+    }
+
+    @Test
+    public void totalPriceShouldReflectQuantityAndItemPrice(){
+        double expected = 2.0;
+        Cart cart = new Cart();
+        cart.addItem(new Item("Apples",  1.00));
+        cart.addItem(new Item("Apples",  1.00));
+
+        double actual = cart.getTotalPrice();
+
+        assertEquals(expected,actual,"total price should reflect quantity and item price");
+    }
+
+    @Test
+    public void itemQuantitiesShouldReflectQuantityAndItemPrice(){
+        int expected = 2;
+        Cart cart = new Cart();
+        cart.addItem(new Item("Apples",  1.00));
+        cart.addItem(new Item("Apples",  1.00));
+
+        int actual = cart.itemQuantities();
+
+        assertEquals(expected,actual,"total price should reflect correct quantity");
     }
 }

@@ -10,6 +10,7 @@ public class Cart {
     private ArrayList<Item> list = new ArrayList<Item>();
     private double totalPrice = 0;
 
+
     public ArrayList<Item> getList() {
         return list;
     }
@@ -28,7 +29,18 @@ public class Cart {
     }
 
     public String itemizedList() {
-        return "";
+        String itemString = "";
+        for(Item item: this.list){
+            String str = String.format("%s: $%.2f%n",item.getName(),item.getPrice());
+            itemString = itemString + str;
+        }
+        return itemString;
     }
+
+    public int itemQuantities(){
+        return 0;
+    }
+
+
 
 }
